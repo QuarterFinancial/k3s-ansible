@@ -1,4 +1,9 @@
 ---
+- name: Upgrade the system
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+
 - name: Test for cmdline path
   ansible.builtin.stat:
     path: /boot/firmware/cmdline.txt

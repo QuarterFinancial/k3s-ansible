@@ -1,0 +1,14 @@
+---
+- name: Install dependencies
+  ansible.builtin.apt:
+    name:
+      - dmsetup
+      - cryptsetup
+      - nfs-common
+      - open-iscsi
+
+- name: Ensure iscsid loaded
+  community.general.modprobe:
+    name: iscsi_tcp
+    state: present
+    persistent: present

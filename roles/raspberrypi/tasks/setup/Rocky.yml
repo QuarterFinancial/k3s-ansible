@@ -1,4 +1,9 @@
 ---
+- name: Upgrade the system
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+
 - name: Enable cgroup via boot commandline if not already enabled for Rocky
   ansible.builtin.lineinfile:
     path: /boot/cmdline.txt
